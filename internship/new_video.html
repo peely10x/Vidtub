@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watch Video</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    video { width: 100%; max-width: 800px; display: block; margin: 0 auto 20px; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2 id="videoTitle">Loading...</h2>
+  <video id="videoPlayer" controls>
+    <source id="videoSource" src="" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoPath = urlParams.get('video');
+    const title = urlParams.get('title');
+
+    if (videoPath) {
+      document.getElementById('videoSource').src = videoPath;
+      document.getElementById('videoPlayer').load();
+    }
+    if (title) {
+      document.getElementById('videoTitle').textContent = decodeURIComponent(title);
+    }
+  </script>
+</body>
+</html>

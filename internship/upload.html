@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    .upload-container {
+      background-color: white;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .upload-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-container">
+    <h2>Upload Video</h2>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+      <label for="title">Video Title:</label>
+      <input type="text" name="title" id="title" required />
+
+      <label for="video">Choose Video (MP4):</label>
+      <input type="file" name="video" id="video" accept="video/mp4" required />
+
+      <label for="thumbnail">Choose Thumbnail (JPG/PNG):</label>
+      <input type="file" name="thumbnail" id="thumbnail" accept="image/jpeg,image/png" required />
+
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+</body>
+</html>
